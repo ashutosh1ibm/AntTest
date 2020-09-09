@@ -3,32 +3,23 @@ pipeline {
     agent any
 
     stages {
-        stage('Build') {
+        stage('Compile Stage') {
+
             steps {
-                echo 'Building..'
+                withMaven(maven : 'apache-maven-3.6.3'){
+	        bat 'mvn clean compile'
+	}
             }
         }
-        stage('Test') {
+        stage('Install Stage') {
+
             steps {
-                echo 'Testing..'
+                withMaven(maven : 'apache-maven-3.6.3'){
+	        bat 'mvn install'
+	}
             }
         }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying....'
-            }
-        }
-    }
+  }
 }
 
-node {
-    stage('Build') {
-        echo 'Building....'
-    }
-    stage('Test') {
-        echo 'Building....'
-    }
-    stage('Deploy') {
-        echo 'Deploying....'
-    }
-}
+        
