@@ -1,7 +1,7 @@
 pipeline {
     agent {
         node {
-	label 'cbsslave-automation'
+	label 'test-cbsslave-automation'
         }
     }
     options {
