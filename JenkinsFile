@@ -1,25 +1,58 @@
-
 pipeline {
-    agent any
-
-    stages {
-        stage('Compile Stage') {
-
-            steps {
-                
-	        bat 'mvn clean compile'
-	
-            }
+    agent {
+        node {
+	label 'cbsslave-automation'
         }
-        stage('Install Stage') {
-
-            steps {
-                
-	        bat 'mvn install'
+    }
+    options {
+        skipDefaultCheckout()
+        buildDiscarder(logRotator(numToKeepStr: '5', daysToKeepStr: '30'))
+    }
+	environment {
+	          
+	         GITURL     = git@gbsgit.in.dst.ibm.com:Sandvik/Sandvik-OA2.0/OA2.0-FinschMigration.git
+	}
 	
+	stages {
+	   
+         stage('Workspacecleanup') {
+            steps {
+                    cleanWs()
             }
+		}
+		stage ('Git Checkout') {
+		    steps {
+	sh '''
+	    git config --global user.name "${GITUSERNAME}"
+	    git clone https://${GITURL}	
+	    git pull origin feature
+	   '''
+	    }
         }
-  }
+
+	  stage ('npm install and giving version'){
+	    steps{
+	      sh '''
+	          npm install @angular/cli
+	          npm install
+		  node -v
+		  npm -v
+	        '''
+	        }
+	}
+      
+	 stage ('create zip file and remove the cache'){
+	     steps{
+	 	sh '''
+		    ng build --output-hashing=all
+	            cp ${WORKSPACE}/AngularJs/Dashboard-Finsch/src/app/Staticfile ${WORKSPACE}/AngularJs/Dashboard-Finsch/dist/SandvikDDP-local/
+		    cd dist/
+                    zip Dashboard-Finsch.zip -r .
+		    mv Dashboard-Finsch.zip ${WORKSPACE}
+		    ls -l
+		   '''
+		}
+	   }
+
+	}
 }
-
-        
