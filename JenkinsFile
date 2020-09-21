@@ -11,7 +11,7 @@ pipeline {
 	environment {
 	          
       
-                 GITCRE = credentials('rmucharl@in.ibm.com(rmucharl@in.ibm.com')
+                 
 	}
 	
 	stages {
