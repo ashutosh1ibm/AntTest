@@ -8,11 +8,7 @@ pipeline {
         skipDefaultCheckout()
         buildDiscarder(logRotator(numToKeepStr: '5', daysToKeepStr: '30'))
     }
-	environment {
-	          
-      
-                 
-	}
+	
 	
 	stages {
 	   
