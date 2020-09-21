@@ -10,7 +10,8 @@ pipeline {
     }
 	environment {
 	          
-	         GITURL     = gitgbsgit.in.dst.ibm.com:Sandvik/Sandvik-OA2.0/OA2.0-FinschMigration.git
+	         GITURL     = http://gbsgit.in.dst.ibm.com:Sandvik/Sandvik-OA2.0/OA2.0-FinschMigration.git
+		 Credentials = 'rmucharl@in.ibm.com(rmucharl@in.ibm.com)'
 	}
 	
 	stages {
