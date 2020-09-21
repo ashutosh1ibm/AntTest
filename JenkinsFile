@@ -8,6 +8,13 @@ pipeline {
         skipDefaultCheckout()
         buildDiscarder(logRotator(numToKeepStr: '5', daysToKeepStr: '30'))
     }
+
+	environment {
+			  
+			
+            GITCREL                 = credentials('rmucharl@in.ibm.com(rmucharl@in.ibm.com)')
+            
+            }
 	
 	
 	stages {
@@ -21,7 +28,7 @@ pipeline {
 		    steps {
 	sh '''
 	    
-	    git clone https://gbsgit.in.dst.ibm.com/Sandvik/Sandvik-OA2.0/OA2.0-FinschMigration.git	
+	    git clone https://${GITCREL}@$gbsgit.in.dst.ibm.com/Sandvik/Sandvik-OA2.0/OA2.0-FinschMigration.git	
 	    git pull origin feature
 	   '''
 	    }
