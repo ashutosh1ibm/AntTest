@@ -10,8 +10,8 @@ pipeline {
     }
 	environment {
 	          
-      	         GITURL     = https}//gbsgit.in.dst.ibm.com/Sandvik/Sandvik-OA2.0/OA2.0-FinschMigration.git
-                 Credentials = 'rmucharl@in.ibm.com(rmucharl@in.ibm.com)'
+      	         GITURL     = git@gbsgit.in.dst.ibm.com:Sandvik/Sandvik-OA2.0/OA2.0-FinschMigration.git
+                 GITCRE = credentials('rmucharl@in.ibm.com(rmucharl@in.ibm.com')
 	}
 	
 	stages {
@@ -25,7 +25,7 @@ pipeline {
 		    steps {
 	sh '''
 	    git config --global user.name "${GITUSERNAME}"
-	    git clone https://${GITURL}	
+	    git clone https://${GITCRE}@${GITURL}	
 	    git pull origin feature
 	   '''
 	    }
@@ -56,3 +56,4 @@ pipeline {
 	   }
 
 	}
+}
