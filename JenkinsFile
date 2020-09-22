@@ -30,7 +30,8 @@ pipeline {
 	sh '''
 	    
 	    git config --global user.name "${GITUSERNAME}"
-	    git clone https://${GITURL}	
+	    GIT_SSL_NO_VERIFY=true git clone https://${GITURL}
+	    	
 	    git pull origin feature
 	   '''
 	    }
