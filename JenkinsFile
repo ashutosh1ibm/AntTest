@@ -12,7 +12,7 @@ pipeline {
 	environment {
 			  
 			
-            GITCREL                 = credentials('rmucharl@in.ibm.com(rmucharl@in.ibm.com)')
+            GITCREL                 = credentials('rmucharl@in.ibm.com')
             
             }
 	
@@ -28,7 +28,7 @@ pipeline {
 		    steps {
 	sh '''
 	    
-	    git clone https://${GITCREL}@$gbsgit.in.dst.ibm.com/Sandvik/Sandvik-OA2.0/OA2.0-FinschMigration.git	
+	    git clone "GITCREL" https://gbsgit.in.dst.ibm.com/Sandvik/Sandvik-OA2.0/OA2.0-FinschMigration.git	
 	    git pull origin feature
 	   '''
 	    }
