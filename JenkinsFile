@@ -27,7 +27,7 @@ pipeline {
 		stage ('Git Checkout') {
 		    steps {
 	sh '''
-	    withCredentials([usernamePassword(USERID: '112', GITUSERNAME: 'USERNAME', PASSWORD: 'PASSWORD')])
+	    withCredentials([usernamePassword(USERID: (), GITUSERNAME: 'USERNAME', PASSWORD: 'PASSWORD')])
 	    git config --global user.name "${GITUSERNAME}"
 	    git clone https://gbsgittest.in.dst.ibm.com/Sandvik/Sandvik-OA2.0/OA2.0-FinschMigration.git	
 	    git pull origin feature
