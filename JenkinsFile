@@ -28,7 +28,7 @@ pipeline {
 		stage ('Git Checkout') {
 		    steps {
 	sh '''
-	    withCredentials([usernamePassword(USERID: ('Ashutosh Kumar'), GITUSERNAME: 'USERNAME', PASSWORD: 'PASSWORD')])
+	    withCredentials([usernamePassword(USERID: (Ashutosh Kumar), GITUSERNAME: 'USERNAME', PASSWORD: 'PASSWORD')])
 
 	    git config --global user.name "${GITUSERNAME}"
 	    GIT_SSL_NO_VERIFY=true git clone https://${GITURL}
