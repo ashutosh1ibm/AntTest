@@ -14,6 +14,7 @@ pipeline {
 			GITUSERNAME    = 'ashkum12@in.ibm.com'
 			USERID  ='112'
 			PASSWORD  ='Ashu@9507416183'
+		}
 	
 	
 	stages {
