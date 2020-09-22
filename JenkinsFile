@@ -9,6 +9,11 @@ pipeline {
         buildDiscarder(logRotator(numToKeepStr: '5', daysToKeepStr: '30'))
     }
 
+	environment {
+		     
+			GITUSERNAME    = 'ashkum12@in.ibm.com'
+			USERID  ='112'
+			PASSWORD  ='Ashu@9507416183'
 	
 	
 	stages {
@@ -21,7 +26,8 @@ pipeline {
 		stage ('Git Checkout') {
 		    steps {
 	sh '''
-	    credentials: 'ashkum12@in.ibm.com' + 'Ashu@9507416183'
+	    withCredentials([usernamePassword(USERID: 'amazon', GITUSERNAME: 'USERNAME', PASSWORD: 'PASSWORD')])
+	    git config --global user.name "${GITUSERNAME}"
 	    git clone https://gbsgittest.in.dst.ibm.com/Sandvik/Sandvik-OA2.0/OA2.0-FinschMigration.git	
 	    git pull origin feature
 	   '''
