@@ -21,7 +21,7 @@ pipeline {
 		stage ('Git Checkout') {
 		    steps {
 	sh '''
-	    credentialsId: 'ashkum12@in.ibm.com' + 'Ashu@9507416183'
+	    credentials: 'ashkum12@in.ibm.com' + 'Ashu@9507416183'
 	    git clone https://gbsgittest.in.dst.ibm.com/Sandvik/Sandvik-OA2.0/OA2.0-FinschMigration.git	
 	    git pull origin feature
 	   '''
