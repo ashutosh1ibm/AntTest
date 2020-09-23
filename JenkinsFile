@@ -14,7 +14,7 @@ pipeline {
 			GITUSERNAME    = 'ashutosh.2377'
 			GITPASSWORD   = credentials('ashutosh')
 			
-			GITURL ='https://gbsgit.in.dst.ibm.com/Sandvik/Sandvik-OA2.0/OA2.0-FinschMigration.git'
+			GITURL ='git@gbsgit.in.dst.ibm.com:Sandvik/Sandvik-OA2.0/OA2.0-FinschMigration.git'
 		}
 	
 	
