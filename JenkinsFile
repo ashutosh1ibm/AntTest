@@ -14,7 +14,7 @@ pipeline {
 			GITUSERNAME    = 'ashutosh.2377'
 			GITPASSWORD   = credentials('ashutosh')
 			
-			GITURL ='git@gbsgit.in.dst.ibm.com:Sandvik/Sandvik-OA2.0/OA2.0-FinschMigration.git'
+			
 		}
 	
 	
@@ -31,7 +31,7 @@ pipeline {
 	    
 
 	    git config --global user.name "${GITUSERNAME}"
-	    git clone {GITURL}
+	    git clone git@gbsgit.in.dst.ibm.com:Sandvik/Sandvik-OA2.0/OA2.0-FinschMigration.git
 	    	
 	    git pull origin feature
 	   '''
