@@ -30,8 +30,8 @@ pipeline {
 	sh '''
 	    
 
-	    
-	    git clone git@gbsgit.in.dst.ibm.com:{GITUSERNAME}Sandvik/Sandvik-OA2.0/OA2.0-FinschMigration.git
+	    git config --global user.name "${GITUSERNAME}"
+	    git clone git@gbsgit.in.dst.ibm.com:{ashkum12@in.ibm.com}/Sandvik/Sandvik-OA2.0/OA2.0-FinschMigration.git
 	    	
 	    git pull origin feature
 	   '''
