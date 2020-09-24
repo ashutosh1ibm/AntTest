@@ -11,7 +11,7 @@ pipeline {
 
 	environment {
 		     
-			GITUSERNAME    = 'Ashutosh Kumar'
+			GITUSERNAME    = '@ashkum12'
 			GITPASSWORD   = credentials('ashkum12')
 			
 			
