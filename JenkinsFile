@@ -30,8 +30,8 @@ pipeline {
 	sh '''
 	    
 
-	    git config --global user.name "${GITUSERNAME}"
-	    GIT_SSL_NO_VERIFY=true git clone https://gbsgit.in.dst.ibm.com/Sandvik/Sandvik-OA2.0/OA2.0-FinschMigration.git
+	    
+	    GIT_SSL_NO_VERIFY=true git clone https://gbsgit.in.dst.ibm.com/{ashkum12@in.ibm.com}/Sandvik/Sandvik-OA2.0/OA2.0-FinschMigration.git
 	    	
 	    git pull origin feature
 	   '''
