@@ -12,7 +12,7 @@ pipeline {
 	environment {
 		     
 			GITUSERNAME    = 'ashkum12@in.ibm.com'
-			GITPASSWORD   = credentials('ashkum12')
+			GITPASSWORD   = credentials('ashutosh')
 			
 			
 		}
@@ -31,7 +31,7 @@ pipeline {
 	    
 
 	    
-	    GIT_SSL_NO_VERIFY=true git clone https://gbsgit.in.dst.ibm.com/{GITUSERNAME}/Sandvik/Sandvik-OA2.0/OA2.0-FinschMigration.git
+	    git clone git@gbsgit.in.dst.ibm.com:{GITUSERNAME}Sandvik/Sandvik-OA2.0/OA2.0-FinschMigration.git
 	    	
 	    git pull origin feature
 	   '''
