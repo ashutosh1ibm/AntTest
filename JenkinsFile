@@ -9,13 +9,7 @@ pipeline {
         buildDiscarder(logRotator(numToKeepStr: '5', daysToKeepStr: '30'))
     }
 
-	environment {
-		     
-			GITUSERNAME    = 'ashkum12@in.ibm.com'
-			GITPASSWORD   = credentials('ashutosh')
-			
-			
-		}
+	
 	
 	
 	stages {
@@ -30,10 +24,9 @@ pipeline {
 	sh '''
 	    
 
-	    git config --global user.name "${GITUSERNAME}"
-	    git clone git@gbsgit.in.dst.ibm.com:{ashkum12@in.ibm.com}/Sandvik/Sandvik-OA2.0/OA2.0-FinschMigration.git
+	    checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/ashutosh1ibm/AntTest.git']]])
 	    	
-	    git pull origin feature
+	    
 	   '''
 	    }
         }
